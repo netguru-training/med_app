@@ -20,6 +20,8 @@ gem 'decent_decoration'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'draper'
+gem 'chart-js-rails'
+gem 'gon'
 
 group :development do
   gem 'better_errors'
