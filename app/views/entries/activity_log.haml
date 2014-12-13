@@ -15,5 +15,5 @@
           %td= entry.examination_type
           %td= entry.value
           %td= entry.entry_description
-          %td= link_to entry.patient, user_member_path(entry.user_id)
+          %td= link_to entry.patient, summary_user_path(entry.user_id)
           %td= entry.date_ago
