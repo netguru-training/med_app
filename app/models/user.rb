@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :entries
+  has_many :patients, class_name: 'User', foreign_key: :doctor_id
 
   validates :firstname, :lastname, presence: true
 end
