@@ -12,4 +12,8 @@ class UsersController < ApplicationController
     end
   end
 
+  def summary
+    @user = User.find(params[:user_id])
+  end
+
 end
