@@ -1,1 +1,5 @@
-%h1 Examinations
+%h1 Examinations:
+%ul
+  - entries.examination_types.keys.each do |entry|
+    %li= link_to entry, entry_path(entry)
+

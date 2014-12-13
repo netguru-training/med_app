@@ -23,7 +23,7 @@
     user.email = Faker::Internet.email
     user.firstname = Faker::Name.first_name
     user.lastname = Faker::Name.last_name
-    user.password = Faker::Internet.password(8)
+    user.password = 12345678
     user.doctor = false
     user.doctor_id = doctor.id
     user.save

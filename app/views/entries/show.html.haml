@@ -1,0 +1,7 @@
+%h1= 'Entries for ' + current_user.firstname
+
+- entries.each do |entry|
+  - if entry.user_id == current_user.id
+    - if entry.examination_type == params[:id]
+      %p
+        = entry.examination_type + ': ' + entry.value.to_s
