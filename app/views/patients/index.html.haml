@@ -1,0 +1,14 @@
+%h1 My Patients:
+
+%table.table.table-striped
+  %tr
+    %th First Name
+    %th Last Name
+    %th Email
+
+    - patients.each do |patient|
+      %tr
+        %td= patient.firstname
+        %td= patient.lastname
+        %td= patient.email
+
