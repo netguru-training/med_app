@@ -1,5 +1,7 @@
 %h1 Examinations:
 %ul
-  - Entry.examination_types.keys.each do |type|
-    %li= link_to type, category_entries_path(type)
+  - examination_types.each do |category|
+    .col-sm-10
+      = link_to category.name, category_entries_path(category.key)
+
 
