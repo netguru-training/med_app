@@ -28,3 +28,10 @@ en:
     weight: 'Weight'
     sugar_level: 'Sugar level'
     heart_rate: 'Heart rate'
+  examination_units:
+    blood_pressure_in: 'mmHg'
+    blood_pressure_out: 'mmHg'
+    weight: 'Kg'
+    sugar_level: 'mg%'
+    heart_rate: 'bpm'
+

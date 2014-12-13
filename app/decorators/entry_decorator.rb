@@ -19,7 +19,15 @@ class EntryDecorator < Draper::Decorator
     end
 	end
 
- def examination_type
-  I18n.t(object.examination_type, scope: :examination_types)
- end
+  def name
+    I18n.t(object.examination_type, scope: :examination_types)
+  end
+
+  def value_with_unit
+    object.value.to_s + " " + I18n.t(object.examination_type, scope: :examination_units)
+  end
+
+  def examination_type
+    I18n.t(object.examination_type, scope: :examination_types)
+  end
 end

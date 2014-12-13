@@ -1,5 +1,20 @@
-%h1= 'Entries for ' + current_user.firstname
+%h1= 'All Entries'
 
-- entries.each do |entry|
-  %p
-    = entry.examination_type + ': ' + entry.value.to_s
+%table.table.table-striped
+  %tr
+    %th #
+    %th Examination
+    %th Date
+    %th Value
+    %th Last examination
+    %th View
+  - id = 1
+  - entries.each do |entry|
+    %tr
+      %td= id
+      %td= entry.name
+      %td= entry.date.strftime("%m/%d/%Y, at %I:%M%p")
+      %td= entry.value_with_unit
+      %td= time_ago_in_words(entry.date) + " ago"
+      %td= link_to 'Show', '#', class: 'btn btn-info'
+    - id += 1
