@@ -5,10 +5,12 @@
     %th First Name
     %th Last Name
     %th Email
+    %th
 
+    =paginate patients
     - patients.each do |patient|
       %tr
         %td= patient.firstname
         %td= patient.lastname
         %td= patient.email
-
+        %td= link_to "View summary"

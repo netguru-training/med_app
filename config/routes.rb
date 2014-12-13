@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   end
   resources :patients, only: :index
   resources :entries
+  get 'activity_log', to: 'entries#activity_log'
   get 'dashboard', to: 'dashboard#index'
 end

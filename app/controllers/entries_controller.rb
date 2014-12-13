@@ -1,15 +1,21 @@
 class EntriesController < ApplicationController
 
-	expose_decorated(:entry)
+  expose(:user)
+  expose(:users)
+  expose_decorated(:entry)
+  expose(:entries)
+  expose(:my_patients_entries) do
+    DoctorPatientsEntriesRepository.new(current_user).all
+  end
 
-	def index
-	end
+  def show
+  end
 
-	def show
-	end
+  def new
+  end
 
-	def new
-	end
+  def activity_log
+  end
 
   def create
     self.entry = Entry.new(entry_params)
