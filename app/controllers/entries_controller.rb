@@ -1,5 +1,7 @@
 class EntriesController < ApplicationController
 
+	expose_decorated(:entry)
+
 	def index
 	end
 
