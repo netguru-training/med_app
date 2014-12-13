@@ -1,5 +1,6 @@
 class EntryDecorator < Draper::Decorator
-  delegate :value, :user_id
+  delegate_all
+
   def date_ago
     "#{h.time_ago_in_words(entry.created_at)} ago"
   end
@@ -33,4 +34,9 @@ class EntryDecorator < Draper::Decorator
   def examination_type
     I18n.t(object.examination_type, scope: :examination_types)
   end
+
+  def chart_date
+    entry.date.to_date
+  end
+
 end
