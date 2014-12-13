@@ -7,7 +7,7 @@ class EntriesController < ApplicationController
   expose(:users)
   expose_decorated(:entry)
   expose(:entries)
-  expose(:my_patients_entries) do
+  expose_decorated(:my_patients_entries, decorator: EntryDecorator) do
     DoctorPatientsEntriesRepository.new(current_user).all
   end
   expose(:examination_types) { CategoryDecorator.decorate_collection(Entry.examination_types.keys) }
