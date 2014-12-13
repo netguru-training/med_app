@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users do
     get :summary, as: :member
   end
-  resources :patients, only: :inde
+  resources :patients, only: :index
   resources :entries
   get 'dashboard', to: 'dashboard#index'
+end
