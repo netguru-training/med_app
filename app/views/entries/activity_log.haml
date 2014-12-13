@@ -4,9 +4,16 @@
   %table.table.table-striped
     %thead
       %tr
-        %th Entry id
+        %th Examination type
+        %th Value
+        %th Description
+        %th User
+        %th Created at
     %tbody
-      - my_patients_entries.each do |mpe|  
+      - my_patients_entries.each do |entry|  
         %tr
-          %td= mpe.id
-
+          %td= entry.examination_type
+          %td= entry.value
+          %td= entry.entry_description
+          %td= link_to entry.patient, user_member_path(entry.user_id)
+          %td= entry.date_ago
