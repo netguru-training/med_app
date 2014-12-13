@@ -30,4 +30,9 @@ class EntryDecorator < Draper::Decorator
   def examination_type
     I18n.t(object.examination_type, scope: :examination_types)
   end
+
+  def chart_date
+    entry.date.to_date
+  end
+
 end
