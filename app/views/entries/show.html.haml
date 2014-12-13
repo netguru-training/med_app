@@ -1,0 +1,17 @@
+%h1 Entry
+
+.btn.btn-default= link_to 'New entry', new_entry_path()
+
+%table.table.table-default
+  %tr
+    %th Date
+    %td= entry.date
+  %tr
+    %th Examination type
+    %td= I18n.t("examination_types.#{entry.examination_type}")
+  %tr
+    %th Value
+    %td= entry.value
+  %tr
+    %th Description
+    %td= entry.description
