@@ -21,3 +21,10 @@
 
 en:
   hello: "Hello world"
+
+  examination_types:
+    blood_pressure_in: 'Blood pressure in'
+    blood_pressure_out: 'Blood pressure out'
+    weight: 'Weight'
+    sugar_level: 'Sugar level'
+    heart_rate: 'Heart rate'
