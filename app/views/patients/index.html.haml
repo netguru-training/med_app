@@ -7,10 +7,10 @@
     %th Email
     %th
 
-    =paginate patients
+    =paginate patients, :theme => 'twitter-bootstrap-3'
     - patients.each do |patient|
       %tr
         %td= patient.firstname
         %td= patient.lastname
         %td= patient.email
-        %td= link_to "View summary"
+        %td= link_to "View summary", user_member_path(patient)
