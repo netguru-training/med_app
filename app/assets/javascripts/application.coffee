@@ -8,33 +8,12 @@
 #= require_self
 
 $ ->
-  labels = [
-    "January"
-    "February"
-    "March"
-    "April"
-    "May"
-    "June"
-    "July"
-  ]
-
-  values = [
-        65
-        59
-        90
-        81
-        56
-        55
-        40
-      ]
-
-  data = {
-    labels: labels
+  bloodPressureData = {
+    labels: gon.chart_data.blood_pressure_out.labels
     datasets: [
-      {
-        data: values
-      }
+      { data: gon.chart_data.blood_pressure_in.values }
+      { data: gon.chart_data.blood_pressure_out.values }
     ]
   }
 
-  myNewChart = new Chart($("#myChart").get(0).getContext("2d")).Line(data)
+  bloodPressureChart = new Chart($("#blood-pressure-chart").get(0).getContext("2d")).Line(bloodPressureData)
