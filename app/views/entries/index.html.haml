@@ -2,6 +2,9 @@
 %ul
   - examination_types.each do |category|
     .col-sm-10
-      = link_to category.name, category_entries_path(category.key)
-
+      .thumbnail
+        = link_to category.name, category_entries_path(category.key)
+        - current_user.entries.each do |entry|
+          = entry.description
+          %br
 

@@ -26,7 +26,7 @@ class EntriesController < ApplicationController
 
   def categories
     ex_type = Entry.examination_types[params[:category_type]]
-    self.entries = current_user.entries.where(examination_type: ex_type)
+    self.entries = EntryDecorator.decorate_collection(current_user.entries.where(examination_type: ex_type))
   end
 
   def create
