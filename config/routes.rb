@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :users do
     get :summary, as: :member
   end
+  resources :entries
   get 'dashboard', to: 'dashboard#index'
 end
