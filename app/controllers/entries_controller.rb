@@ -1,5 +1,8 @@
 class EntriesController < ApplicationController
 
+  before_action :authenticate_user!
+  before_action :authenticate_patient, only: [:new, :create]
+
   expose(:user)
   expose(:users)
   expose_decorated(:entry)
