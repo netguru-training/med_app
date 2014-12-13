@@ -7,7 +7,9 @@ class ChartDataGenerator
 
   def generate
     result = {}
-    entries.examination_types.keys.each do |type|
+    keys = entries.examination_types.keys
+    blood_pressure_keys = keys.shift(2)
+    keys.each do |type|
       result[type] = {
         labels: entries.public_send(type).pluck(:date) ,
         datasets: [
@@ -15,6 +17,25 @@ class ChartDataGenerator
         ]
       }
     end
+    result[:blood_pressure] = {
+      labels: (entries.blood_pressure_in.pluck(:date) + entries.blood_pressure_out.pluck(:date)).uniq,
+      datasets: [
+        {
+          fillColor: "rgba(220,220,220,0.5)",
+          strokeColor: "rgba(220,220,220,1)",
+          pointColor: "rgba(220,220,220,1)",
+          pointStrokeColor: "#fff",
+          data: entries.blood_pressure_in.pluck(:value)
+        },
+        {
+          fillColor: "rgba(151,187,205,0.5)",
+          strokeColor: "rgba(151,187,205,1)",
+          pointColor: "rgba(151,187,205,1)",
+          pointStrokeColor: "#fff",
+          data: entries.blood_pressure_out.pluck(:value)
+        }
+      ]
+    }
     result
   end
 end
