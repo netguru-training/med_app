@@ -1,5 +1,6 @@
 class EntryDecorator < Draper::Decorator
-  delegate :value, :user_id
+  delegate_all
+
   def date_ago
     "#{h.time_ago_in_words(entry.created_at)} ago"
   end
