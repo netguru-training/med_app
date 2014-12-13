@@ -10,7 +10,9 @@ class ChartDataGenerator
     entries.examination_types.keys.each do |type|
       result[type] = {
         labels: entries.public_send(type).pluck(:date) ,
-        values: entries.public_send(type).pluck(:value)
+        datasets: [
+          data: entries.public_send(type).pluck(:value)
+        ]
       }
     end
     result
