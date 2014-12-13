@@ -1,10 +1,19 @@
 %h1 Examinations:
 %ul
   - examination_types.each do |category|
-    .col-sm-10
-      .thumbnail
+    .col-sm-8.thumbnail
+      %p
+        Recent examinations of
         = link_to category.name, category_entries_path(category.key)
-        - current_user.entries.each do |entry|
-          = entry.description
-          %br
+        %hr
+        - current_user.entries.for_examination(category.key).last(2).each do |e|
+          .col.sm-8
+            .col-sm-4
+              Value:
+              = e.value
+            .col-sm-4
+              = e.date
+
+            = e.description
+
 

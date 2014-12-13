@@ -4,6 +4,10 @@ class EntryDecorator < Draper::Decorator
     "#{h.time_ago_in_words(entry.created_at)} ago"
   end
 
+  def date
+    object.date.strftime("%m/%d/%Y, at %I:%M%p")
+  end
+
   def entry_description
     entry.description.humanize
   end

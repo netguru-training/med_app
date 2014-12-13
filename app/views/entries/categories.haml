@@ -13,8 +13,8 @@
     %tr
       %td= id
       %td= entry.name
-      %td= entry.date.strftime("%m/%d/%Y, at %I:%M%p")
+      %td= entry.date
       %td= entry.value_with_unit
-      %td= time_ago_in_words(entry.date) + " ago"
+      %td= entry.date_ago
       %td= link_to 'Show', '#', class: 'btn btn-info'
     - id += 1

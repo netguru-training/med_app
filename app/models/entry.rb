@@ -12,5 +12,10 @@ class Entry < ActiveRecord::Base
   scope :sugar_level, -> { where(examination_type: 3) }
   scope :heart_rate, -> { where(examination_type: 4) }
 
+  scope :for_examination, -> (examination_type) do
+    ex_type = Entry.examination_types[examination_type]
+    where(examination_type: ex_type)
+  end
+
 
 end
