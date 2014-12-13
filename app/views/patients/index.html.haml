@@ -1,0 +1,16 @@
+%h1 My Patients:
+
+%table.table.table-striped
+  %tr
+    %th First Name
+    %th Last Name
+    %th Email
+    %th
+
+    =paginate patients, :theme => 'twitter-bootstrap-3'
+    - patients.each do |patient|
+      %tr
+        %td= patient.firstname
+        %td= patient.lastname
+        %td= patient.email
+        %td= link_to "View summary", user_member_path(patient)

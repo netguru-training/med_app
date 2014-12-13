@@ -1,0 +1,12 @@
+.row
+  %h1 My Patients entries:
+.row
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Entry id
+    %tbody
+      - my_patients_entries.each do |mpe|  
+        %tr
+          %td= mpe.id
+

@@ -1,0 +1,5 @@
+%h1= 'Entries for ' + current_user.firstname
+
+- entries.each do |entry|
+  %p
+    = entry.examination_type + ': ' + entry.value.to_s
