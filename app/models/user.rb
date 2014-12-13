@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :entries
 
-  validates_presence_of :firstname, :lastname
+  validates :firstname, :lastname, presence: true
 end
