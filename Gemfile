@@ -17,6 +17,7 @@ gem 'pg'
 gem 'simple_form'
 gem 'decent_exposure'
 gem 'decent_decoration'
+gem 'draper'
 
 group :development do
   gem 'better_errors'
