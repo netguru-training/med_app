@@ -5,7 +5,7 @@ class EntryDecorator < Draper::Decorator
     "#{h.time_ago_in_words(entry.created_at)} ago"
   end
 
-  def date
+  def my_date
     object.date.strftime("%m/%d/%Y, at %I:%M%p") if object.date.present?
   end
 
