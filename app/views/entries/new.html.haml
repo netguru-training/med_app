@@ -4,7 +4,7 @@
   .well.entries-form
     .form-inputs
       .form-inline
-      = f.input :date, as: :date, label: 'Select date: '
+        = f.input :date, as: :datetime, label: 'Select date: '
       = f.input :examination_type, collection: entry.examination_type_collection
       = f.input :value
       = f.input :description
