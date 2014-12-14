@@ -7,6 +7,8 @@
 Have you health problems? Have you a problem with regularity? Are you busy?
 
 Our tool is for You! Join and share your results with our doctors!
+![](http://i.imgur.com/dJdvVd6.png)
+![](http://i.imgur.com/JWlc9jB.png)
 
 ### Heroku
 
