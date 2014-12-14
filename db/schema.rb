@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20141214111229) do
     t.integer  "doctor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "entry_id"
     t.boolean  "acknowledge", default: false
   end
 
@@ -54,8 +53,8 @@ ActiveRecord::Schema.define(version: 20141214111229) do
     t.string   "name"
     t.boolean  "doctor",                 default: false
     t.integer  "doctor_id"
-    t.string   "firstname",                              null: false
-    t.string   "lastname",                               null: false
+    t.string   "firstname"
+    t.string   "lastname"
     t.string   "token"
   end
 
