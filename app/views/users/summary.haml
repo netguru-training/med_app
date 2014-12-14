@@ -1,4 +1,4 @@
-%h2 CLIENT SUMMARY
+%h1 #{user.firstname} #{user.lastname} (Summary)
 .col-sm-10
   .form
     = simple_form_for alert, url: user_alerts_path(user) do |f|
@@ -8,3 +8,4 @@
       .form.actions
         =f.button :submit, "Add alert"
 
+= render partial: 'dashboard/dashboard'

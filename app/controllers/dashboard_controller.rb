@@ -2,7 +2,15 @@ class DashboardController < ApplicationController
 
   before_action :authenticate_user!
 
-  expose_decorated(:entries) { current_user.entries.where("date > ?", days_ago) }
+
+  expose(:user) do
+    if params[:user_id].present?
+      User.find(params[:user_id])
+    else
+      current_user
+    end
+  end
+  expose_decorated(:entries) { user.entries.where("date > ?", days_ago) }
 
   def index
     chart_data = ChartDataGenerator.new(entries).generate
