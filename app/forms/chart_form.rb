@@ -5,7 +5,7 @@ class ChartForm
 
   def initialize(type, days)
     self.type = type
-    self.days = days
+    self.days = days.nil? ? 30 : days
   end
 
   def type_collection

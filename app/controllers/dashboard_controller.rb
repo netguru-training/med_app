@@ -16,12 +16,12 @@ class DashboardController < ApplicationController
   end
 
   def chart_params
-    params.permit(:type, :days)
+    params.fetch(:chart_form, {} )
   end
 
   private
 
   def days_ago
-    (params[:days] || 100).to_i.days.ago
+    (chart_params[:days] || 30).to_i.days.ago
   end
 end

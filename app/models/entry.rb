@@ -17,5 +17,8 @@ class Entry < ActiveRecord::Base
     where(examination_type: ex_type)
   end
 
+  scope :blood_pressure, -> do
+    blood_pressure_out + blood_pressure_in
+  end
 
 end
