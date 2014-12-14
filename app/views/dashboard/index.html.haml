@@ -1,7 +1,8 @@
 %h1 My dashboard
 
-.alert.alert-danger
+.alert.col-sm-12{ class: health_warning.alert_color }
   .glyphicon.glyphicon-exclamation-sign
   = health_warning.warnings
+
 
 = render partial: 'dashboard/dashboard'
