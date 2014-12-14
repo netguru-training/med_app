@@ -9,7 +9,7 @@ class EntriesController < ApplicationController
   expose_decorated(:entry)
   expose(:entries) {entries.page params[:page]}
   expose_decorated(:my_patients_entries, decorator: EntryDecorator) do
-    DoctorPatientsEntriesRepository.new(current_user).all
+    DoctorPatientsEntriesRepository.new(current_user).all.page params[:page]
   end
   expose(:examination_types) { CategoryDecorator.decorate_collection(Entry.examination_types.keys) }
 

@@ -10,7 +10,8 @@
         %th User
         %th Created at
     %tbody
-      - my_patients_entries.each do |entry|  
+      =paginate my_patients_entries, :theme => 'twitter-bootstrap-3'
+      - my_patients_entries.each do |entry|
         %tr
           %td= entry.examination_type
           %td= entry.value
