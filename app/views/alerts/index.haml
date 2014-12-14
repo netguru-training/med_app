@@ -3,11 +3,13 @@
 -alerts.each do |alert|
   .row
     .alert.col-sm-6{ class: alert.alert_color }
-      .col-sm-5
-        .glyphicon{class: alert.glyphicon}
-        =alert.content
-      .col-sm-5
-        =alert.date
+      .col-sm-10
+        .blockquote
+          .p
+            .glyphicon{class: alert.glyphicon}
+            =alert.content
+          .footer
+            =alert.date
       .col-sm-2
         = alert.check
 

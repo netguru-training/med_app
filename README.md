@@ -1,50 +1,67 @@
-Med App
-================
+# Med App!
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+[![](http://img.shields.io/travis/netguru-training/med_app.svg?style=flat-square)](https://travis-ci.org/netguru-training/med_app/)
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
+## General info
 
-Rails Composer is open source and supported by subscribers. Please join RailsApps to support development of Rails Composer.
+Have you health problems? Have you a problem with regularity? Are you busy?
 
-Problems? Issues?
------------
+Our tool is for You! Join and share your results with our doctors!
 
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
+### Heroku
 
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
+App is available on [heroku](https://powerful-garden-8847.herokuapp.com)
 
-If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include the diagnostics.
+## Technologies
 
-Ruby on Rails
--------------
+* Ruby on Rails 4.1
+* Ruby 2.1
+* Postgres
 
-This application requires:
+## Setup
 
-- Ruby 2.1.5
-- Rails 4.1.8
+> cp config/database.yml.sample config/database.yml
 
-Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
+> rake db:migrate
 
-Getting Started
----------------
+> rake db:setup
 
-Documentation and Support
--------------------------
+## Info
 
-Issues
--------------
+You can sign in to app by
 
-Similar Projects
-----------------
+> doctor@example.com / 12345678
 
-Contributing
-------------
+> patient@example.com / 12345678
 
-Credits
--------
+## Tests
 
-License
--------
+We use RSpec 3 for testing backend.
+
+## Notes
+
+Please follow Ruby style guide available [here](https://github.com/bbatsov/ruby-style-guide).
+
+## Contributing
+
+If you make improvements to this application, please share with others.
+
+* Fork the project on GitHub.
+* Make your feature addition or bug fix.
+* Commit with Git.
+* Send the author a pull request.
+
+If you add functionality to this application, create an alternative
+implementation, or build an application that is similar, please contact
+me and I’ll add a note to the README so that others can find your work.
+
+## License
+
+MIT
+
+## Authors
+* Zofia
+* Olga
+* Bartosz
+* Jacek
+* Special props to Adam Nowak for mentoring :)

@@ -2,6 +2,8 @@ class DashboardController < ApplicationController
 
   before_action :authenticate_user!
 
+  expose(:health_warning) { HealthWarning.new(current_user).check_sugar }
+
   expose_decorated(:entries) { current_user.entries.where("date > ?", days_ago) }
   expose(:chartform) { ChartForm.new(chart_params[:type], chart_params[:days]) }
   expose_decorated(:entry)
