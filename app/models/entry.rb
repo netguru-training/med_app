@@ -17,5 +17,5 @@ class Entry < ActiveRecord::Base
     where(examination_type: ex_type)
   end
 
-
+  paginates_per 15
 end

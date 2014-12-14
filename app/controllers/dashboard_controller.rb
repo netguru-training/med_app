@@ -5,7 +5,12 @@ class DashboardController < ApplicationController
   expose_decorated(:entries) { current_user.entries.where("date > ?", days_ago) }
 
   def index
-    gon.chart_data = ChartDataGenerator.new(entries).generate
+    chart_data = ChartDataGenerator.new(entries).generate
+
+    respond_to do |format|
+      format.html
+      format.json { render json: chart_data }
+    end
   end
 
   private

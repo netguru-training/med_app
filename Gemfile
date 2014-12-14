@@ -21,7 +21,6 @@ gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'draper'
 gem 'chart-js-rails'
-gem 'gon'
 gem 'faker'
 
 

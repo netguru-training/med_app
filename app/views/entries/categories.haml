@@ -8,6 +8,7 @@
     %th Value
     %th Last examination
     %th View
+  =paginate entries, :theme => 'twitter-bootstrap-3'
   - id = 1
   - entries.each do |entry|
     %tr
