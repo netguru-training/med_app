@@ -3,6 +3,7 @@ class EntriesController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_patient, only: [:new, :create]
 
+  expose_decorated(:current_user_entries, decorator: EntriesDecorator) {current_user.entries }
   expose(:user)
   expose(:users)
   expose_decorated(:entry)
@@ -13,6 +14,7 @@ class EntriesController < ApplicationController
   expose(:examination_types) { CategoryDecorator.decorate_collection(Entry.examination_types.keys) }
 
   def index
+
   end
 
   def show

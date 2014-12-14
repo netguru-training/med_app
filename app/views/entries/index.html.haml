@@ -1,19 +1,26 @@
-%h1 Examinations:
-%ul
+.row
+  %h1 Examinations:
+.row
   - examination_types.each do |category|
-    .col-sm-8.thumbnail
-      %p
-        Recent examinations of
-        = link_to category.name, category_entries_path(category.key)
-        %hr
-        - current_user.entries.for_examination(category.key).last(2).each do |e|
-          .col.sm-8
-            .col-sm-4
-              Value:
-              = e.value
-            .col-sm-4
-              = e.date
+    .col-sm-6.col-md-4
+      .thumbnail
+        %p
+          %h3
+            Recent examinations of
+            %br
+            = link_to category.name, category_entries_path(category.key)
+          %hr
+          %table.table.table-striped
+            %thead
+              %tr
+                %th Value
+                %th Date
+            %tbody
+            - current_user_entries.for_examination(category.key).each do |e|
+              %tr
+                %td= e.value_with_unit
+                %td= e.date
 
-            = e.description
+
 
 
