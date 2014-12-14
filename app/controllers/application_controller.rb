@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :configure_permitted_parameters, if: :devise_controller?
   decent_configuration do
     strategy DecentExposure::StrongParametersStrategy
   end
@@ -10,6 +11,11 @@ class ApplicationController < ActionController::Base
     if user_signed_in? && current_user.doctor?
       redirect_to root_path, alert: 'You are not allowed to perfom this action.'
     end
+  end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) << [:email, :password, :firstname, :lastname]
+    devise_parameter_sanitizer.for(:account_update) << [:email, :password, :firstname, :lastname]
   end
 
 end
