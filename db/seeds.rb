@@ -39,5 +39,14 @@
       entry.examination_type = Entry.examination_types.values.sample
       entry.save
     end
+
+    3.times do
+      alert = Alert.new
+      alert.user_id = user.id
+      alert.doctor_id = doctor.id
+      alert.content = Faker::Lorem.sentence
+      alert.save
+    end
+
   end
 end

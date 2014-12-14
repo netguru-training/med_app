@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :entries
   has_many :patients, class_name: 'User', foreign_key: :doctor_id
+  has_many :alerts
 
   validates :firstname, :lastname, presence: true
   paginates_per 15

@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   expose(:user)
   expose(:users)
+  expose(:alert) { Alert.new }
 
   def show
     unless user == current_user
@@ -12,5 +13,6 @@ class UsersController < ApplicationController
 
   def summary
   end
+
 
 end

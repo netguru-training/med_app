@@ -1,1 +1,10 @@
-CLIENT SUMMARY
+%h2 CLIENT SUMMARY
+.col-sm-10
+  .form
+    = simple_form_for alert, url: user_alerts_path(user) do |f|
+      .form-group
+        .form-inputs
+          = f.input :content
+      .form.actions
+        =f.button :submit, "Add alert"
+

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users do
     get :summary, on: :member
+    resources :alerts, only: :create
   end
   resources :patients, only: :index
   resources :entries do
@@ -11,5 +12,6 @@ Rails.application.routes.draw do
   end
   get 'activity_log', to: 'entries#activity_log'
   get 'dashboard', to: 'dashboard#index'
+  resources :alerts
 
 end

@@ -6,7 +6,7 @@ class EntryDecorator < Draper::Decorator
   end
 
   def date
-    object.date.strftime("%m/%d/%Y, at %I:%M%p")
+    object.created_at.strftime("%m/%d/%Y, at %I:%M%p")
   end
 
   def entry_description
