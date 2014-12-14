@@ -7,9 +7,9 @@
     %th Date
     %th Value
     %th Last examination
-  =paginate entries, :theme => 'twitter-bootstrap-3'
+  =paginate decorated_entry_collection, :theme => 'twitter-bootstrap-3'
   - id = 1
-  - entries.each do |entry|
+  - decorated_entry_collection.each do |entry|
     %tr
       %td= id
       %td= entry.name

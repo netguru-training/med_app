@@ -7,7 +7,9 @@ class EntriesController < ApplicationController
   expose(:user)
   expose(:users)
   expose_decorated(:entry)
-  expose(:entries) {entries.page params[:page]}
+  expose(:decorated_entry_collection) do
+    EntryDecorator.decorate_collection(current_user.entries.for_examination(params[:category_type]).page params[:page])
+  end
   expose_decorated(:my_patients_entries, decorator: EntryDecorator) do
     DoctorPatientsEntriesRepository.new(current_user).all.page params[:page]
   end
@@ -18,6 +20,7 @@ class EntriesController < ApplicationController
   end
 
   def show
+    self.entry = EntryDecorator.decorate Entry.find(params[:id])
   end
 
   def new
@@ -27,7 +30,6 @@ class EntriesController < ApplicationController
   end
 
   def categories
-    self.entries = EntryDecorator.decorate_collection(current_user.entries.for_examination(params[:category_type]).page params[:page])
   end
 
   def create
