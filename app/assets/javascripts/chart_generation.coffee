@@ -13,6 +13,10 @@ $(document).on 'ready page:load', ->
   $(".btn-group#chart-list ul.dropdown-menu li#sugar_level").click ->
     drawCharts('sugar_level', 'Sugar level')
 
+  $('form#new_chart_form').on('change', ->
+    $(this).submit();
+  )
+
 drawCharts = (chartData, chartTitle) ->
   $.getJSON("/dashboard.json", (data) ->
     new Chart($("canvas#chart").get(0).getContext("2d")).Line(data[chartData])
