@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   expose(:user)
   expose(:users)
+  expose(:patient_token_form) { PatientTokenForm.new }
 
   def show
     unless user == current_user
@@ -17,11 +18,11 @@ class UsersController < ApplicationController
   end
 
   def update_patient_doctor
-    patient = User.find_by_token(params[:user][:token])
+    patient = User.find_by_token(params[:patient][:token])
     
     if patient.present?
       patient.update(doctor_id: current_user.id)
-      redirect_to patients_path
+      redirect_to patients_path, notice: "Patient added correct."
     else
       redirect_to :back, :alert => "Patient not find."
     end
