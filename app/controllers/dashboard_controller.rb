@@ -5,6 +5,13 @@ class DashboardController < ApplicationController
   expose_decorated(:entries) { current_user.entries.where("date > ?", days_ago) }
   expose(:chartform) { ChartForm.new(chart_params[:type], chart_params[:days]) }
   expose_decorated(:entry)
+  expose(:user) do
+    if params[:user_id].present?
+      User.find(params[:user_id])
+    else
+      current_user
+    end
+  end
 
   def index
     chart_data = ChartDataGenerator.new(entries).generate

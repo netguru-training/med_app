@@ -10,10 +10,11 @@
         %th User
         %th Created at
     %tbody
-      - my_patients_entries.each do |entry|  
+      =paginate my_patients_entries, :theme => 'twitter-bootstrap-3'
+      - my_patients_entries.each do |entry|
         %tr
           %td= entry.examination_type
-          %td= entry.value
+          %td= entry.value_with_unit
           %td= entry.entry_description
           %td= link_to entry.patient, summary_user_path(entry.user_id)
           %td= entry.date_ago

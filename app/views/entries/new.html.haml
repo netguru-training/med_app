@@ -2,10 +2,11 @@
 
 = simple_form_for entry do |f|
   = f.error_notification
-  .form-inputs
-    = f.input :date, as: :date
-    = f.input :examination_type, collection: entry.examination_type_collection
-    = f.input :value
-    = f.input :description
-  .form-actions
-    = f.button :submit, "Save"
+  .well.entries-form
+    .form-inputs
+      .form-inline= f.input :date, as: :date, label: 'Select date: '
+      = f.input :examination_type, collection: entry.examination_type_collection
+      = f.input :value
+      = f.input :description
+    .form-actions
+      = f.button :submit, "Save"

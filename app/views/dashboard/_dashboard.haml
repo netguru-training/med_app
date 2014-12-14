@@ -1,0 +1,14 @@
+.btn-group#chart-list
+  %button.btn.btn-default{:type => "button"} Choose chart type
+  %button.btn.btn-default.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :type => "button"}
+    %span.caret
+    %span.sr-only Toggle Dropdown
+  %ul.dropdown-menu{:role => "menu"}
+    %li#blood_pressure= link_to 'Blood pressure', '#'
+    %li#weight= link_to 'Weight', '#'
+    %li#heart_rate= link_to 'Heart rate', '#'
+    %li#sugar_level= link_to 'Sugar level', '#'
+
+.row
+  %h2#chart_title
+  %canvas#chart{:height => "400", :width => "800"}

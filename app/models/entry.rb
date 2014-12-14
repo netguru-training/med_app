@@ -21,4 +21,5 @@ class Entry < ActiveRecord::Base
     blood_pressure_out + blood_pressure_in
   end
 
+  paginates_per 15
 end

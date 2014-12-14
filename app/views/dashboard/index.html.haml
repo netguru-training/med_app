@@ -1,7 +1,7 @@
+%h1 My dashboard
+
 = simple_form_for chartform, url: dashboard_path, method: 'GET' do |f|
   = f.input :type, collection: chartform.type_collection, selected: chartform.type
   = f.input :days, as: :integer, input_html: { value: chartform.days }
 
-.row
-  %h2#chart_title
-  %canvas#chart{:height => "400", :width => "800"}
+= render partial: 'dashboard/dashboard'
