@@ -10,4 +10,8 @@ describe User do
     expect(@user.email).to match 'user@example.com'
   end
 
+  it 'assigns token after initialization' do
+    expect(User.new.token).to_not eq nil
+  end
+
 end
