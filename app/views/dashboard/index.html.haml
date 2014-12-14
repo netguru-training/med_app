@@ -1,7 +1,6 @@
 = simple_form_for chartform, url: dashboard_path, method: 'GET' do |f|
-  = f.input :type, collection: chartform.type_collection, selected: params[:chart_form][:type]
-  = f.input :days, as: :integer,
-    input_html: { value: params[:chart_form][:days] }
+  = f.input :type, collection: chartform.type_collection, selected: chartform.type
+  = f.input :days, as: :integer, input_html: { value: chartform.days }
 
 .row
   %h2#chart_title
