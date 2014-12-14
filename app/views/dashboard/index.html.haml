@@ -1,3 +1,7 @@
 %h1 My dashboard
 
+.alert.alert-danger
+  .glyphicon.glyphicon-exclamation-sign
+  = health_warning.warnings
+
 = render partial: 'dashboard/dashboard'
