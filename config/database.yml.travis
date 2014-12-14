@@ -2,4 +2,4 @@
 test:
   adapter:  postgresql
   database: med_app_test
-  username: med_app
+  username: postgres
