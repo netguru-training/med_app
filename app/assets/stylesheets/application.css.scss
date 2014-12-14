@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+.form-inline {
+  margin-bottom: 15px;
+}
+
+.entries-form {
+  max-width: 400px;
+  box-shadow: 10px 10px 5px -5px rgba(0,0,0,0.49);
+}
+
+.box {
+    box-shadow: 10px 10px 5px -5px rgba(0,0,0,0.49);
+}
+

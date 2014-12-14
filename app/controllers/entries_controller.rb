@@ -3,11 +3,11 @@ class EntriesController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_patient, only: [:new, :create]
 
-  expose_decorated(:current_user_entries, decorator: EntriesDecorator) {current_user.entries }
+  expose_decorated(:current_user_entries, decorator: EntriesDecorator) {current_user.entries.page params[:page]  }
   expose(:user)
   expose(:users)
   expose_decorated(:entry)
-  expose(:entries)
+  expose(:entries) {entries.page params[:page]}
   expose_decorated(:my_patients_entries, decorator: EntryDecorator) do
     DoctorPatientsEntriesRepository.new(current_user).all
   end
@@ -27,7 +27,7 @@ class EntriesController < ApplicationController
   end
 
   def categories
-    self.entries = EntryDecorator.decorate_collection(current_user.entries.for_examination(params[:category_type]))
+    self.entries = EntryDecorator.decorate_collection(current_user.entries.for_examination(params[:category_type]).page params[:page])
   end
 
   def create
