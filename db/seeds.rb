@@ -1,12 +1,45 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+def create_stuff_for(user, doctor)
+  10.times do
+    entry = Entry.new
+    entry.user_id = user.id
+    entry.date = Faker::Date.between(5.days.ago, Date.today)
+    entry.value = Faker::Number.number(3)
+    entry.description = Faker::Lorem.sentence
+    entry.examination_type = Entry.examination_types.values.sample
+    entry.save
+  end
 
-# Environment variables (ENV['...']) can be set in the file .env file.
+  3.times do
+    alert = Alert.new
+    alert.user_id = user.id
+    alert.doctor_id = doctor.id
+    alert.content = Faker::Lorem.sentence
+    alert.save
+  end
+end
+
+if User.find_by(email: 'doctor@example.com').nil?
+  User.create!(
+    firstname: "dr. Doctor",
+    lastname: "Test Doctor",
+    email: "doctor@example.com",
+    password: "12345678",
+    doctor: true)
+end
+
+dr_frankenstein = User.find_by(email: 'doctor@example.com')
+
+if User.find_by(email: 'patient@example.com').nil?
+  User.create!(
+    firstname: "Patient",
+    lastname: "Test Patient",
+    email: "patient@example.com",
+    password: "12345678",
+    doctor_id: dr_frankenstein.id)
+end
+
+john = User.find_by(email: 'patient@example.com')
+create_stuff_for(john, dr_frankenstein)
 
 2.times do
   doctor = User.new
@@ -30,23 +63,6 @@
     user.token = Faker::Lorem.characters(20)
     user.save
 
-    10.times do
-      entry = Entry.new
-      entry.user_id = user.id
-      entry.date = Faker::Date.between(5.days.ago, Date.today)
-      entry.value = Faker::Number.number(3)
-      entry.description = Faker::Lorem.sentence
-      entry.examination_type = Entry.examination_types.values.sample
-      entry.save
-    end
-
-    3.times do
-      alert = Alert.new
-      alert.user_id = user.id
-      alert.doctor_id = doctor.id
-      alert.content = Faker::Lorem.sentence
-      alert.save
-    end
-
+    create_stuff_for(user, doctor)
   end
 end
