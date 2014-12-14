@@ -13,4 +13,18 @@ class UsersController < ApplicationController
   def summary
   end
 
+  def add_patient
+  end
+
+  def update_patient_doctor
+    patient = User.find_by_token(params[:user][:token])
+    
+    if patient.present?
+      patient.update(doctor_id: current_user.id)
+      redirect_to patients_path
+    else
+      redirect_to :back, :alert => "Patient not find."
+    end
+  end
+
 end

@@ -1,0 +1,9 @@
+.row
+  = simple_form_for(user, url: update_patient_doctor_path) do |form|
+    .form-group
+      = form.label :token, class: "control-label col-sm-4"
+      .col-sm-6
+        = form.input :token, required: true, class: "form-control"
+    = form.submit
+
+
