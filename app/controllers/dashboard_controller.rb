@@ -14,7 +14,13 @@ class DashboardController < ApplicationController
   end
 
   def index
-    chart_data = ChartDataGenerator.new(entries).generate
+    if chart_params[:type].nil?
+      type = 'blood_pressure'
+    else
+      type = chart_params[:type]
+    end
+
+    chart_data = ChartDataGenerator.new(entries).generate(type)
 
     respond_to do |format|
       format.html
