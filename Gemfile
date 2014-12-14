@@ -22,6 +22,8 @@ gem 'bootstrap-kaminari-views'
 gem 'draper'
 gem 'chart-js-rails'
 gem 'gon'
+gem 'faker'
+
 
 group :development do
   gem 'better_errors'
@@ -34,7 +36,6 @@ group :development do
 end
 group :development, :test do
   gem 'factory_girl_rails'
-  gem 'faker'
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'rspec-rails'

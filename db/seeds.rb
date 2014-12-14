@@ -16,6 +16,7 @@
   doctor.password = 12345678
   doctor.doctor = true
   doctor.doctor_id = nil
+  doctor.token = Faker::Lorem.characters(20)
   doctor.save
 
   8.times do
@@ -26,6 +27,7 @@
     user.password = 12345678
     user.doctor = false
     user.doctor_id = doctor.id
+    user.token = Faker::Lorem.characters(20)
     user.save
 
     10.times do

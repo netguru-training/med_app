@@ -9,4 +9,12 @@ class User < ActiveRecord::Base
 
   validates :firstname, :lastname, presence: true
   paginates_per 15
+
+  after_initialize :assign_token
+
+  private
+
+  def assign_token
+    self.token ||= SecureRandom.hex(10)
+  end
 end
