@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 20141213100740) do
     t.string   "name"
     t.boolean  "doctor",                 default: false
     t.integer  "doctor_id"
-    t.string   "firstname",                              null: false
-    t.string   "lastname",                               null: false
+    t.string   "firstname"
+    t.string   "lastname"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
