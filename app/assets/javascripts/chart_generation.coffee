@@ -1,4 +1,4 @@
-$ ->
+$(document).on 'ready page:load', ->
   drawCharts(gon.chart_data.blood_pressure, 'Blood pressure')
 
   $(".btn-group#chart-list ul.dropdown-menu li#blood_pressure").click ->
