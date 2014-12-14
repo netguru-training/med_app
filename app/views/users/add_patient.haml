@@ -1,9 +1,9 @@
 .row
   = simple_form_for(patient_token_form, url: update_patient_doctor_path) do |form|
     .form-group
-      = form.label :token, class: "control-label col-sm-4"
-      .col-sm-6
-        = form.input :token, required: true, class: "form-control"
-    = form.submit
-
+      .col-sm-10
+        = form.input :token, class: "form-control"
+        .pull-right
+          = link_to 'Back', patients_path, class: "btn btn-default"
+          = form.submit 'Add Patient', class: "btn btn-primary"
 
