@@ -3,5 +3,5 @@ rvm:
   - 2.1.5
 before_script:
   - cp config/database.yml.travis config/database.yml
-  - createuser -s -r med_app
+  - psql -c 'create database med_app_test;' -U med_app
   - bin/rake db:migrate --trace
